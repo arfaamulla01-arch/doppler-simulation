@@ -1,6 +1,6 @@
-- [x] Inspect current movement bounds, rate-scale mapping, and physics-test coverage.
-- [x] Keep source and observer in view across all valid velocity settings.
-- [x] Adapt the detector-rate scale to the active valid data range.
-- [x] Add a combined-motion preset regression assertion.
-- [x] Validate the corrected project: 8 physics tests, type check, production build, log review, and desktop/mobile visual review.
-- [ ] Save a new checkpoint.
+- [ ] Locate the header logo source and its current Vite reference.
+- [x] Locate the header logo source and its current Vite reference.
+- [x] Replace only the logo reference with a production-safe bundled or public asset path.
+- [x] Confirm the production output contains the logo and that the built app resolves it with an HTTP 200 response.
+- [x] Reduce the public logo to a 256 px, 105 KB PNG while preserving its appearance.
+- [ ] Save the logo-only fix checkpoint.
