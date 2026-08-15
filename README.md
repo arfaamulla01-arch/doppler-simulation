@@ -54,4 +54,4 @@ npm run dev
 
 The project is a static Vite application and can be deployed using Vercel, Netlify, or GitHub Pages.
 
-**Live Demo:** https://dopplersim-wmjhykxz.manus.space
+**Live Demo:** https://doppler-simulation.netlify.app/
