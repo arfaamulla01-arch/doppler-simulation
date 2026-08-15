@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import "@/styles/observatory-refine.css";
+import "@/styles/qa-fixes.css";
 import { ArrowDown, AudioLines, BookOpenCheck, ChevronRight, Gauge, MoveHorizontal, Waves } from "lucide-react";
 import { AhaMode } from "@/components/AhaMode";
 import { Controls } from "@/components/Controls";

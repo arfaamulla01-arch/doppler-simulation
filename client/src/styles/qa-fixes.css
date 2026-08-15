@@ -1,0 +1,6 @@
+/** Observatory Console QA fix: preserve the existing instrument styling while exposing live scale bounds. */
+
+.scale-track::after { content: none; }
+.scale-bound { position: absolute; top: 32px; color: #678190; font: 9px "Space Grotesk", sans-serif; white-space: nowrap; }
+.scale-bound-start { left: 0; }
+.scale-bound-end { right: 0; }

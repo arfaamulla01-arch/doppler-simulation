@@ -2,7 +2,7 @@
 
 import { Pause, Play, Sparkles } from "lucide-react";
 import { useEffect, useRef } from "react";
-import type { ExperimentConfig } from "@/physics/doppler";
+import { LIMITS, type ExperimentConfig } from "@/physics/doppler";
 import { Button } from "@/components/ui/button";
 
 type SimulationProps = {
@@ -83,13 +83,21 @@ export function Simulation({ config, running, ahaActive, onToggleRunning, onAhaT
       const aha = ahaRef.current;
 
       if (active) elapsed += dt;
-      const motionTime = elapsed % 3.6;
+      const loopDuration = 3.6;
+      const motionTime = elapsed % loopDuration;
+      const loopProgress = motionTime / loopDuration;
       const screenSoundSpeed = 152 * (activeConfig.soundSpeed / 343);
-      const sourceMotion = screenSoundSpeed * (activeConfig.sourceVelocity / activeConfig.soundSpeed);
-      const observerMotion = screenSoundSpeed * (activeConfig.observerVelocity / activeConfig.soundSpeed);
       const baselineY = height * 0.54;
-      const sourceX = width * 0.22 + sourceMotion * motionTime;
-      const observerX = width * 0.77 + observerMotion * motionTime;
+      const edgeInset = Math.max(34, Math.min(64, width * 0.08));
+      const sourceHome = width * 0.25;
+      const observerHome = width * 0.75;
+      const sourceTrack = Math.max(0, 2 * Math.min(sourceHome - edgeInset, width * 0.45 - sourceHome));
+      const observerTrack = Math.max(0, 2 * Math.min(observerHome - width * 0.55, width - edgeInset - observerHome));
+      const maximumVelocityRatio = LIMITS.sourceVelocity.max / LIMITS.soundSpeed.min;
+      const sourceProgress = Math.min(1, Math.abs(activeConfig.sourceVelocity / activeConfig.soundSpeed) / maximumVelocityRatio);
+      const observerProgress = Math.min(1, Math.abs(activeConfig.observerVelocity / activeConfig.soundSpeed) / maximumVelocityRatio);
+      const sourceX = activeConfig.sourceVelocity === 0 ? sourceHome : sourceHome + Math.sign(activeConfig.sourceVelocity) * (loopProgress - 0.5) * sourceTrack * sourceProgress;
+      const observerX = activeConfig.observerVelocity === 0 ? observerHome : observerHome + Math.sign(activeConfig.observerVelocity) * (loopProgress - 0.5) * observerTrack * observerProgress;
       const emissionPeriod = Math.max(0.2, Math.min(1.05, 260 / activeConfig.sourceFrequency));
 
       if (active) {

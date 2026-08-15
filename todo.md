@@ -1,4 +1,6 @@
-- [x] Verify the Aha-mode action label in the simulation toolbar.
-- [x] Change the label from "Exit Aha mode" to "Exit mode" if still present.
-- [x] Validate the updated label source, TypeScript check, and production build.
-- [ ] Save an updated checkpoint.
+- [x] Inspect current movement bounds, rate-scale mapping, and physics-test coverage.
+- [x] Keep source and observer in view across all valid velocity settings.
+- [x] Adapt the detector-rate scale to the active valid data range.
+- [x] Add a combined-motion preset regression assertion.
+- [x] Validate the corrected project: 8 physics tests, type check, production build, log review, and desktop/mobile visual review.
+- [ ] Save a new checkpoint.
