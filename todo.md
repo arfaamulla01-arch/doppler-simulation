@@ -1,0 +1,4 @@
+- [x] Verify the Aha-mode action label in the simulation toolbar.
+- [x] Change the label from "Exit Aha mode" to "Exit mode" if still present.
+- [x] Validate the updated label source, TypeScript check, and production build.
+- [ ] Save an updated checkpoint.

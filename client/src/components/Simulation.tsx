@@ -227,7 +227,7 @@ export function Simulation({ config, running, ahaActive, onToggleRunning, onAhaT
             {running ? <Pause size={15} /> : <Play size={15} />} {running ? "Pause" : "Play"}
           </Button>
           <Button variant="ghost" className={`instrument-button aha-button ${ahaActive ? "active" : ""}`} onClick={onAhaToggle}>
-            <Sparkles size={15} /> {ahaActive ? "Exit Aha mode" : "Show me why"}
+            <Sparkles size={15} /> {ahaActive ? "Exit mode" : "Show me why"}
           </Button>
         </div>
       </div>
